@@ -5,21 +5,26 @@ import LateralLine from "./LateralLine"
 function AboutPage(props) {
     return (
         <div className="about-page">
+            {/* Page line */}
             <SiteLine x1={20} y1={0} x2={20} y2={850} />
-            <LateralLine x1={-props.width + (props.width/1.2)} y1={(props.height/5) + 25} x2={20} y2={(props.height/5) + 25} />
+            {/* Connector line */}
+            <LateralLine x1={-props.width + (props.width/1.2)} y1={(props.height/5) + 23} x2={20} y2={(props.height/5) + 23} />
+            {/* Header line */}
             <div 
                 className="about-page-header"
                 style={{top: `${props.height/5}px`}}
             >
-                <p className="text-bg">ABOUT</p>
+                <p>ABOUT</p>
             </div>
-            <LateralLine x1={-props.width + (props.width/1.2)} y1={(props.height/3) + 11} x2={20} y2={(props.height/3) + 11} />
+            {/* Connector line */}
+            <LateralLine x1={-props.width + (props.width/1.2)} y1={(props.height/3) + 25} x2={20} y2={(props.height/3) + 25} />
+            {/* About text */}
             <div 
                 className="about-page-text"
-                style={{top: `${props.height/3}px`}}
+                style={{top: `${props.height/3.7}px`}}
             >
-                <p className="text-bg">
-                    Bill Buster is a web app
+                <p>
+                    Bill Buster is a web app designed to help divvy the cost of living together. Simply input the cost of the bill, the bill period, the number of housemates, their stay period, and their respective share of the cost.
                 </p>
             </div>
         </div>

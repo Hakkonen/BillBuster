@@ -45,6 +45,8 @@ body {
     margin: 0 auto;
     height: 100vh;
     width: 100vw;
+    max-width: 375px;
+    max-height: 812px;
 };
 
 .app-container {
@@ -143,12 +145,8 @@ body {
     overflow: visible;
 }
 
-.text-bg {
-    background-color: $background-colour;
-}
-
-@mixin newPage() {
-    height: 100vh;
+@mixin newPage($pageHeight: 100vh) {
+    height: $pageHeight;
     width: 100%;
 
     background-color: $background-colour;
@@ -160,8 +158,7 @@ body {
         justify-content: center;
         align-content: center;
 
-        text-align: center;
-
+        text-align: right;
         position: relative;
 
         font-weight: weights(light);
@@ -176,7 +173,8 @@ body {
         justify-content: center;
         align-content: center;
 
-        text-align: center;
+        text-align: justify;
+        text-justify: inter-word;
 
         position: relative;
 
@@ -185,14 +183,68 @@ body {
     }
 
     p {
-        @include lineText()
+        @include lineText();
+        background-color: $background-colour;
+        max-width: 50vw;
+    }
+}
+
+@mixin clearInput($width: 50vw) {
+    width: $width;
+    border: 0;
+    margin: 0;
+    padding-right: 1rem;
+    background-color: $background-colour;
+    color: $primary-text-colour;
+    font-size: 3rem;
+    font-family: "Roboto", sans-serif;
+    font-weight: weights(light);
+    text-align: right;
+    overflow: visible;
+
+    &:focus {
+        outline: none;
     }
 }
 
 .about-page {
-    @include newPage()
+    @include newPage(70vh);
+    
 }
 
 .bill-cost-page {
-    @include newPage()
+    @include newPage(70vh);
+
+    .bill-cost-input {
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        position: relative;
+
+        input {
+            @include clearInput();
+        }
+    }
+}
+
+.bill-period-page {
+    @include newPage();
+
+    &-input {
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        position: relative;
+
+        input {
+            @include clearInput(60vw);
+        }
+    
+        .days {
+            font-size: 3rem;
+            font-weight: weights(thin);
+            margin-right: 42vw;
+            margin-left: -7vw;
+        }
+    }
 }

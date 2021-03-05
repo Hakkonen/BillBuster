@@ -5,13 +5,17 @@ import { render } from "react-dom"
 import SiteLine from "./components/SiteLine"
 import LateralLine from "./components/LateralLine"
 import AboutPage from "./components/AboutPage"
+import BillCost from "./components/BillCost"
+import BillPeriod from "./components/BillPeriod"
 
 function App() {
     const [ width, setWidth ] = useState(window.innerWidth)
     const [ height, setHeight ] = useState(window.innerHeight)
+    const [ billCost, setBillCost ] = useState(0)
+    const [ billPeriod, setBillPeriod ] = useState(30)
 
     useEffect(() => {
-        console.log(width, height)
+        // console.log(width, height)
     })
 
     return (
@@ -39,31 +43,19 @@ function App() {
 
             <div className="page-spacer"></div>
 
-            {/* <div className="about-page">
-                <SiteLine x1={20} y1={0} x2={20} y2={850} />
-                <LateralLine x1={-width + (width/1.2)} y1={(height/5) + 25} x2={20} y2={(height/5) + 25} />
-                <div 
-                    className="about-page-header"
-                    style={{top: `${height/5}px`}}
-                >
-                    <p className="text-bg">ABOUT</p>
-                </div>
-                <LateralLine x1={-width + (width/1.2)} y1={(height/3) + 11} x2={20} y2={(height/3) + 11} />
-                <div 
-                    className="about-page-text"
-                    style={{top: `${height/3}px`}}
-                >
-                    <p className="text-bg">
-                        Bill Buster is a web app
-                    </p>
-                </div>
-            </div> */}
-
             <AboutPage height={height} width={width} />
 
-            <div className="bill-cost-page">
+            <BillCost 
+                billCost={billCost} 
+                setBillCost={setBillCost}
+                height={height} width={width} 
+            />
 
-            </div>
+            <BillPeriod
+                billPeriod={billPeriod}
+                setBillPeriod={setBillPeriod}
+                height={height} width={width} 
+            />
         </div>
     )
 }
