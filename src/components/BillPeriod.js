@@ -9,7 +9,6 @@ function BillPeriod(props) {
         if (output === '' || re.test(output)) {
             props.setBillPeriod(output)
         }
-        console.log(props.billPeriod)
     }
 
     return (

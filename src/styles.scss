@@ -221,8 +221,18 @@ body {
         align-content: center;
         position: relative;
 
+        align-self: flex-end;
+
+        .dollar {
+            font-size: 3rem;
+            font-weight: weights(light);
+            text-align: right;
+            background-color: #48484A;
+        }
+
         input {
-            @include clearInput();
+            @include clearInput(7ch);
+            text-align: left!important;
         }
     }
 }

@@ -11,7 +11,7 @@ import BillPeriod from "./components/BillPeriod"
 function App() {
     const [ width, setWidth ] = useState(window.innerWidth)
     const [ height, setHeight ] = useState(window.innerHeight)
-    const [ billCost, setBillCost ] = useState(0)
+    const [ billCost, setBillCost ] = useState(10)
     const [ billPeriod, setBillPeriod ] = useState(30)
 
     useEffect(() => {
