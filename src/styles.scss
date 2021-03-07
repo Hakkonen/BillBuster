@@ -45,8 +45,6 @@ body {
     margin: 0 auto;
     height: 100vh;
     width: 100vw;
-    max-width: 375px;
-    max-height: 812px;
 };
 
 .app-container {
@@ -139,15 +137,19 @@ body {
     position: absolute;
     right: 10vw;
 
-    display: flex;
-    justify-content: center;
-    align-content: center;
+    // display: flex;
+    // justify-content: center;
+    // align-content: center;
     overflow: visible;
 }
 
 @mixin newPage($pageHeight: 100vh) {
     height: $pageHeight;
     width: 100%;
+
+    // display: flex;
+    // flex-wrap: nowrap;
+    // flex-direction: column;
 
     background-color: $background-colour;
     &-header {
@@ -231,7 +233,7 @@ body {
         }
 
         input {
-            @include clearInput(7ch);
+            @include clearInput(2ch);
             text-align: left!important;
         }
     }
@@ -248,13 +250,23 @@ body {
 
         input {
             @include clearInput(60vw);
+            
         }
     
         .days {
             font-size: 3rem;
             font-weight: weights(thin);
             margin-right: 42vw;
-            margin-left: -7vw;
+            margin-left: -3vw;
         }
+    }
+}
+
+.housemate-quantity {
+    @include newPage();
+
+    &-header {
+        // word-wrap: break-word;
+        font-size: 2rem;
     }
 }

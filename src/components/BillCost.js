@@ -10,11 +10,8 @@ function BillCost(props) {
         let input = e.target.value
         const re = /^[.0-9\b]+$/
         if (input === '' || re.test(input)) {
-            console.log(input)
-            console.log(input.length)
             // Allow prop update if conditions are met
-            // Check if first number is 0
-
+            
             // Test for decimal and limit places to two
             if(input.includes(".")) {
                 let decimalIndex = input.indexOf(".")
@@ -30,14 +27,10 @@ function BillCost(props) {
                 // If first digit is 0 and second is decimal continue
             } else if (input.charAt(0) === "0" && input.charAt(1) == ".") {
                 props.setBillCost(input)
-                console.log("Updated: ", props.billCost)
             // If length is 1 and first digit is 0 continue
             } else if (input.charAt(0) === "0" && input.length == 1) {
                 props.setBillCost(input)
-                console.log("Updated: ", props.billCost)
-            } else {
-                console.log("No bueno")
-            }
+            } 
         }
         
 
@@ -50,12 +43,12 @@ function BillCost(props) {
             <SiteLine x1={20} y1={0} x2={20} y2={850} />
 
             {/* Connector line */}
-            <LateralLine x1={-props.width + (props.width/1.2)} y1={(props.height/10 * 2) + 50} x2={20} y2={(props.height/10 * 2) + 50} />
+            <LateralLine x1={-props.width + (props.width/1.2)} y1={props.height/10 * 2} x2={20} y2={props.height/10 * 2} />
 
             {/* Header */}
             <div 
                 className="bill-cost-page-header"
-                style={{top: `${props.height/10 * 2}px`}}
+                style={{top: `${props.height/10 * 1.45}px`}}
             >
                 <p>
                     BILL COST
@@ -77,7 +70,7 @@ function BillCost(props) {
                     // step=".01"
                     value={props.billCost} 
                     placeholder={100}
-                    // style={{width: props.billCost.length + "ch"}}
+                    style={{width: props.billCost.length + "ch"}}
                     // onFocus={e => e.target.select()}
                     onKeyDown={e => {if(e.target.value.length > 6) e.target.value = e.target.value.slice(0, 6)}}
                     onChange={e => toCurrency(e)} 

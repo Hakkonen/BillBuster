@@ -2,11 +2,10 @@ import "./styles.scss"
 import React, { useEffect, useState } from "react"
 import { render } from "react-dom"
 
-import SiteLine from "./components/SiteLine"
-import LateralLine from "./components/LateralLine"
 import AboutPage from "./components/AboutPage"
 import BillCost from "./components/BillCost"
 import BillPeriod from "./components/BillPeriod"
+import HousemateQuantity from "./components/HousemateQuantity"
 
 function App() {
     const [ width, setWidth ] = useState(window.innerWidth)
@@ -54,6 +53,10 @@ function App() {
             <BillPeriod
                 billPeriod={billPeriod}
                 setBillPeriod={setBillPeriod}
+                height={height} width={width} 
+            />
+
+            <HousemateQuantity
                 height={height} width={width} 
             />
         </div>

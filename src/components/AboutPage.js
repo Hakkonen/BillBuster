@@ -3,16 +3,18 @@ import SiteLine from "./SiteLine"
 import LateralLine from "./LateralLine"
 
 function AboutPage(props) {
+    
     return (
         <div className="about-page">
             {/* Page line */}
             <SiteLine x1={20} y1={0} x2={20} y2={850} />
             {/* Connector line */}
-            <LateralLine x1={-props.width + (props.width/1.2)} y1={(props.height/5) + 23} x2={20} y2={(props.height/5) + 23} />
+            <LateralLine x1={-props.width + (props.width/1.2)} y1={props.height/10 * 2} x2={20} y2={props.height/10 * 2} />
             {/* Header line */}
             <div 
+                id="about"
                 className="about-page-header"
-                style={{top: `${props.height/5}px`}}
+                style={{top: `${(props.height/10 * 1.7)}px`}}
             >
                 <p>ABOUT</p>
             </div>

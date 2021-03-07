@@ -7,7 +7,11 @@ function BillPeriod(props) {
         let output = e.target.value
         const re = /^[0-9\b]+$/;
         if (output === '' || re.test(output)) {
-            props.setBillPeriod(output)
+            if(output.length > 1 && output.charAt(0) === "0") {
+                // do nothing
+            } else {
+                props.setBillPeriod(output)
+            }
         }
     }
 
@@ -38,9 +42,9 @@ function BillPeriod(props) {
                 <input 
                     type="text" 
                     value={props.billPeriod} 
-                    // onFocus={e => e.target.select()}
                     onChange={e => inputDays(e)} 
                     maxLength="3"
+                    placeholder="30"
                 />
                 <p className="days">DAYS</p>
             </div>
