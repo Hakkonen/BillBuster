@@ -10,7 +10,7 @@ import HousemateQuantity from "./components/HousemateQuantity"
 function App() {
     const [ width, setWidth ] = useState(window.innerWidth)
     const [ height, setHeight ] = useState(window.innerHeight)
-    const [ billCost, setBillCost ] = useState(10)
+    const [ billCost, setBillCost ] = useState(1.23)
     const [ billPeriod, setBillPeriod ] = useState(30)
 
     useEffect(() => {
@@ -20,27 +20,27 @@ function App() {
     return (
         <div className="app-container dark">
             
-            {/* Splash scroll page */}
             <div className="splash-page sticky">
-                {/* Logo */}
-                <p className="splash-page-logo">BILL<br></br>BUSTER</p>
-                
-                {/* Swipe */}
-                <p className="swipe">
-                    Swipe
-                </p>
+                <div className="left-col">
 
-                <span className="arrow">
-                    {/* Arrow SVG */}
-                    <svg className="less-sticky">
-                        <line x1="20" y1="150" x2="20" y2="1000" style={{stroke: "rgb(255,0,0)", strokeWidth: "1"}} />
+                </div>
+                <div className="middle-col">
+                    <p className="logo">
+                        BILL BUSTER
+                    </p>
+                </div>
+                <div className="right-col">
+                    <svg  className="arrow">
+                        <line x1="20" y1="150" x2="20" y2="800" style={{stroke: "rgb(255,0,0)", strokeWidth: "1"}} />
                         <line x1="20" y1="150" x2="27" y2="160" style={{stroke: "rgb(255,0,0)", strokeWidth: "1"}} />
                         <line x1="20" y1="150" x2="13" y2="160" style={{stroke: "rgb(255,0,0)", strokeWidth: "1"}} />
                     </svg>
-                </span>
+                    
+                    <p className="swipe">
+                        Swipe
+                    </p>
+                </div>
             </div>
-
-            <div className="page-spacer"></div>
 
             <AboutPage height={height} width={width} />
 
@@ -50,7 +50,7 @@ function App() {
                 height={height} width={width} 
             />
 
-            <BillPeriod
+            {/* <BillPeriod
                 billPeriod={billPeriod}
                 setBillPeriod={setBillPeriod}
                 height={height} width={width} 
@@ -58,7 +58,7 @@ function App() {
 
             <HousemateQuantity
                 height={height} width={width} 
-            />
+            /> */}
         </div>
     )
 }

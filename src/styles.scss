@@ -42,6 +42,7 @@ $font-weights:(
 
 body {
     font-family: "Roboto", sans-serif;
+    background-color: $background-colour;
     margin: 0 auto;
     height: 100vh;
     width: 100vw;
@@ -53,141 +54,136 @@ body {
     min-height: 100vh;
 }
 
-.splash-page {
+@mixin flex-page($pageHeight: 100vh) {
     width: 100%;
-    height: 83vh;
+    height: $pageHeight;
 
-    z-index: 500;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    align-content: center;
 
-    position: sticky;
+    .left-col {
+        width: 7vw;
+        height: 100%;
+    }
+
+    .middle-col {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: center;
+        align-items: flex-start;
+        align-content: flex-start;
+        flex-grow: 1;
+
+        width: 71vw;
+        height: 100%;
+
+        &-header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            width: auto;
+            max-width: 5ch;
+            height: auto;
+            margin: 0 0 0 17vw;
+            padding-right: 5vw;
+            z-index: 500;
+
+            text-align: right;   
+            position: relative;
+
+            background-color: $background-colour;
+
+            font-weight: weights(light);
+            font-size: 2.5rem;
+        }
+
+        &-text {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            max-width: 30ch;
+            margin: 0 0 0 17vw;
+            padding-right: 5vw;
+            z-index: 500;
+    
+            text-align: justify;   
+            position: relative;
+    
+            background-color: $background-colour;
+    
+            font-weight: weights(thin);
+            font-size: 1rem;
+        }
+    }
+
+    .right-col {
+        width: 22vw;
+        height: 100%;
+        
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: center;
+        align-items: flex-start;
+        align-content: flex-start;
+    }
+
+    .arrow {
+        height: 100%; 
+        width: 100%;
+
+        &-connector {
+            z-index: 200;
+            height: auto;
+            width: 100%;
+            position: relative;
+
+            overflow: visible;
+            margin: 0;
+        }
+    }
+}
+
+.splash-page {
+    @include flex-page(83vh);
 
     background-color: $splash-background;
     color: $splash-text-colour;
 
     &.sticky {
+        z-index: 1000;
         position: -webkit-sticky;
         position: sticky;
         top: -62vh;
     }
+    
+    .logo {
+        width: 6ch;
 
-    p {
-        margin: 0;
-    }
-
-    &-logo {
         font-size: 48px;
         font-weight: weights(regular);
         position: absolute;
-        top: 65vh;
-        left: 8vw;
+
+        top: 59vh;
+        left: 13vw;
     }
 
     .swipe {
-        position: absolute;
-        right: 10.5vw;
-        top: 30vh;
+        position: relative;
+        bottom: 55vh;
+        left: -10.5vw;
+
+        margin: 0;
+
         transform: rotate(270deg);
 
         font-weight: weights(light);
         font-size: 22px;
-    }
-
-    .arrow {
-    height: 83vh; 
-    width: 30px;
-
-    z-index: 1000;
-    position: absolute;
-    top: 0;
-    right: 10vw;
-
-    display: flex;
-    justify-content: center;
-    align-content: center;
-        
-        .less-sticky {
-            position: -webkit-sticky;
-            position: sticky;
-            bottom: -63vh;
-        }
-    }
-}
-
-.page-spacer {
-    height: 17vh;
-    width: 100%;
-}
-
-.site-line {
-    height: 100%; 
-    width: 30px;
-
-    position: absolute;
-    right: 10vw;
-
-    display: flex;
-    justify-content: center;
-    align-content: center;
-}
-
-.lateral-line {
-    height: auto; 
-    width: 30px;
-
-    position: absolute;
-    right: 10vw;
-
-    // display: flex;
-    // justify-content: center;
-    // align-content: center;
-    overflow: visible;
-}
-
-@mixin newPage($pageHeight: 100vh) {
-    height: $pageHeight;
-    width: 100%;
-
-    // display: flex;
-    // flex-wrap: nowrap;
-    // flex-direction: column;
-
-    background-color: $background-colour;
-    &-header {
-        width: 100%;
-        height: auto;
-
-        display: flex;
-        justify-content: center;
-        align-content: center;
-
-        text-align: right;
-        position: relative;
-
-        font-weight: weights(light);
-        font-size: 2.5rem;
-    }
-
-    &-text {
-        width: 100%;
-        height: auto;
-
-        display: flex;
-        justify-content: center;
-        align-content: center;
-
-        text-align: justify;
-        text-justify: inter-word;
-
-        position: relative;
-
-        font-weight: weights(thin);
-        font-size: 1rem;
-    }
-
-    p {
-        @include lineText();
-        background-color: $background-colour;
-        max-width: 50vw;
     }
 }
 
@@ -195,7 +191,7 @@ body {
     width: $width;
     border: 0;
     margin: 0;
-    padding-right: 1rem;
+    // padding-right: 1rem;
     background-color: $background-colour;
     color: $primary-text-colour;
     font-size: 3rem;
@@ -210,20 +206,28 @@ body {
 }
 
 .about-page {
-    @include newPage(70vh);
+    @include flex-page();
     
+    margin-top: 27vh;
 }
 
 .bill-cost-page {
-    @include newPage(70vh);
+    @include flex-page();
 
     .bill-cost-input {
         display: flex;
-        justify-content: center;
+        flex-direction: row;
+        flex-wrap: nowrap;
         align-content: center;
-        position: relative;
+        align-self: center;
+        align-items: center;
 
-        align-self: flex-end;
+        z-index: 500;
+        background-color: #48484A;
+        margin: 0 0 0 17vw;
+        padding-right: 3vw;
+        
+        position: absolute;
 
         .dollar {
             font-size: 3rem;
@@ -233,40 +237,65 @@ body {
         }
 
         input {
-            @include clearInput(2ch);
+            @include clearInput(7ch);
             text-align: left!important;
         }
     }
 }
 
-.bill-period-page {
-    @include newPage();
+// .bill-cost-page {
+//     @include newPage(70vh);
 
-    &-input {
-        display: flex;
-        justify-content: center;
-        align-content: center;
-        position: relative;
+//     .bill-cost-input {
+//         display: flex;
+//         justify-content: center;
+//         align-content: center;
+//         position: relative;
 
-        input {
-            @include clearInput(60vw);
+//         align-self: flex-end;
+
+//         .dollar {
+//             font-size: 3rem;
+//             font-weight: weights(light);
+//             text-align: right;
+//             background-color: #48484A;
+//         }
+
+//         input {
+//             @include clearInput(2ch);
+//             text-align: left!important;
+//         }
+//     }
+// }
+
+// .bill-period-page {
+//     @include newPage();
+
+//     &-input {
+//         display: flex;
+//         justify-content: center;
+//         align-content: center;
+//         position: relative;
+
+//         input {
+//             @include clearInput(60vw);
             
-        }
+//         }
     
-        .days {
-            font-size: 3rem;
-            font-weight: weights(thin);
-            margin-right: 42vw;
-            margin-left: -3vw;
-        }
-    }
-}
+//         .days {
+//             font-size: 3rem;
+//             font-weight: weights(thin);
+//             margin-right: 42vw;
+//             margin-left: -3vw;
+//         }
+//     }
+// }
 
-.housemate-quantity {
-    @include newPage();
+// .housemate-quantity {
+//     @include newPage();
 
-    &-header {
-        // word-wrap: break-word;
-        font-size: 2rem;
-    }
-}
+//     &-header {
+//         // word-wrap: break-word;
+//         font-size: 2rem;
+//     }
+// }
