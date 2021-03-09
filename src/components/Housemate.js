@@ -1,20 +1,27 @@
 import React, { useState } from "react"
 
 function Housemate(props) {
-    const handleChange = (e) => {
-        let input = e.target.value
-        const re = /^[0-9\b]+$/;
-        if (input === '' || re.test(input)) {
-            if(input.length > 1 && input.charAt(0) === "0") {
-                // do nothing
-            } else {
-                props.setHousemates({...props.housemates, hOne: {
-                    ...props.housemates.hOne, period: e.target.value
-                }})
-                
-            }
-        }
-    }
+    // const handleChange = (e) => {
+    //     let input = e.target.value
+    //     const re = /^[0-9\b]+$/;
+    //     if (input === '' || re.test(input)) {
+    //         if(input.length > 1 && input.charAt(0) === "0") {
+    //             // do nothing
+    //         } else {
+    //             // props.setPerson({...props.housemates, hOne: {
+    //             //     ...props.housemates.hOne, period: e.target.value
+    //             // }})
+    //             let inputPerson = props.person
+    //             console.log(inputPerson)
+    //             props.setPerson(person.map(person => 
+    //                     person.key === props.key
+    //                     ? {...person, stay: e.target.value}
+    //                     : person
+    //                 ))
+    //             console.log(props.person)
+    //         }
+    //     }
+    // }
 
     return (
         <div className="housemate">
@@ -25,15 +32,15 @@ function Housemate(props) {
                     className="middle-col-header"
                     style={{height: "30%"}}
                 >
-                    <p>{props.housemates.hOne.name} STAY</p>
+                    <p>{props.person.name} STAY</p>
                 </div>
                 
                 <div className="housemate-input">
                     <input
                         type="text"
                         name="period"
-                        value={props.housemates.hOne.period}
-                        onChange={e => handleChange(e)}
+                        value={props.person.stay}
+                        onChange={e => props.handleChange(e, props.person.key)}
                         maxLength="3"
                         placeholder="30"
                     ></input>
