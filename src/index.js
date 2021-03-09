@@ -6,15 +6,21 @@ import AboutPage from "./components/AboutPage"
 import BillCost from "./components/BillCost"
 import BillPeriod from "./components/BillPeriod"
 import HousemateQuantity from "./components/HousemateQuantity"
+import Housemate from "./components/Housemate"
 
 function App() {
     const [ width, setWidth ] = useState(window.innerWidth)
     const [ height, setHeight ] = useState(window.innerHeight)
-    const [ billCost, setBillCost ] = useState(1.23)
+    const [ billCost, setBillCost ] = useState(250)
     const [ billPeriod, setBillPeriod ] = useState(30)
-
-    useEffect(() => {
-        // console.log(width, height)
+    const [ housemateCount, setHousemateCount ] = useState(2)
+    const [ housemates, setHousemates ] = useState({
+        hOne: {
+            key: 0,
+            name: "HOUSEMATE ONE",
+            period: 0,
+            owing: 0
+        },
     })
 
     return (
@@ -50,7 +56,7 @@ function App() {
                 height={height} width={width} 
             />
 
-            {/* <BillPeriod
+            <BillPeriod
                 billPeriod={billPeriod}
                 setBillPeriod={setBillPeriod}
                 height={height} width={width} 
@@ -58,7 +64,16 @@ function App() {
 
             <HousemateQuantity
                 height={height} width={width} 
-            /> */}
+                housemateCount={housemateCount}
+                setHousemateCount={setHousemateCount}
+            />
+
+            <Housemate 
+                height={height} width={width} 
+                key={housemates.hOne.key}
+                housemates={housemates}
+                setHousemates={setHousemates}
+            />
         </div>
     )
 }

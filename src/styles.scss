@@ -119,6 +119,22 @@ body {
             font-weight: weights(thin);
             font-size: 1rem;
         }
+
+        // &-input {
+        //     display: flex;
+        //     flex-direction: row;
+        //     flex-wrap: nowrap;
+        //     align-content: center;
+        //     align-self: center;
+        //     align-items: center;
+    
+        //     z-index: 500;
+        //     background-color: #48484A;
+        //     margin: 0 0 0 17vw;
+        //     padding-right: 3vw;
+            
+        //     position: absolute;
+        // }
     }
 
     .right-col {
@@ -243,59 +259,101 @@ body {
     }
 }
 
-// .bill-cost-page {
-//     @include newPage(70vh);
+.bill-period-page {
+    @include flex-page();
 
-//     .bill-cost-input {
-//         display: flex;
-//         justify-content: center;
-//         align-content: center;
-//         position: relative;
+    .bill-period-page-input {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-content: center;
+        align-self: center;
+        align-items: center;
 
-//         align-self: flex-end;
+        z-index: 500;
+        background-color: #48484A;
+        margin: 0 0 0 17vw;
+        padding-right: 3vw;
+        
+        position: absolute;
 
-//         .dollar {
-//             font-size: 3rem;
-//             font-weight: weights(light);
-//             text-align: right;
-//             background-color: #48484A;
-//         }
+        .days {
+            font-size: 3rem;
+            font-weight: weights(thin);
+            text-align: right;
+            background-color: #48484A;
+        }
 
-//         input {
-//             @include clearInput(2ch);
-//             text-align: left!important;
-//         }
-//     }
-// }
+        input {
+            @include clearInput(3ch);
+        }
+    }
+}
 
-// .bill-period-page {
-//     @include newPage();
+.housemate-quantity {
+    @include flex-page();
 
-//     &-input {
-//         display: flex;
-//         justify-content: center;
-//         align-content: center;
-//         position: relative;
+    .middle-col-header > p{
+        font-size: 2rem;
+        padding-right: .5rem;
+        background-color: #48484A;
+    }
 
-//         input {
-//             @include clearInput(60vw);
+    .housemates-input {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-content: center;
+        align-self: center;
+        align-items: center;
+
+        z-index: 500;
+        background-color: #48484A;
+        margin: 0 0 0 5vw;
+        padding-right: 3vw;
+        
+        position: absolute;
+
+        input {
+            @include clearInput(3ch);
+        }
+    }
+}
+
+.housemate {
+    @include flex-page();
+
+    .middle-col-header > p{
+        font-size: 2rem;
+        padding-right: .5rem;
+        background-color: #48484A;
+    }
+
+    .housemate-input {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-content: center;
+        align-self: center;
+        align-items: center;
+
+        z-index: 500;
+        background-color: #48484A;
+        margin: 0 0 0 0;
+        padding-right: 3vw;
+        
+        position: absolute;
+
+        .days {
+            font-size: 3rem;
+            font-weight: weights(thin);
+            text-align: right;
+            background-color: #48484A;
+        }
+
+        input {
+            @include clearInput(3ch);
             
-//         }
-    
-//         .days {
-//             font-size: 3rem;
-//             font-weight: weights(thin);
-//             margin-right: 42vw;
-//             margin-left: -3vw;
-//         }
-//     }
-// }
-
-// .housemate-quantity {
-//     @include newPage();
-
-//     &-header {
-//         // word-wrap: break-word;
-//         font-size: 2rem;
-//     }
-// }
+        }
+    }
+}
