@@ -357,3 +357,9 @@ body {
         }
     }
 }
+
+.results-page {
+    @include flex-page();
+
+    
+}

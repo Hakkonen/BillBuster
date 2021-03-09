@@ -1,28 +1,6 @@
 import React, { useState } from "react"
 
 function Housemate(props) {
-    // const handleChange = (e) => {
-    //     let input = e.target.value
-    //     const re = /^[0-9\b]+$/;
-    //     if (input === '' || re.test(input)) {
-    //         if(input.length > 1 && input.charAt(0) === "0") {
-    //             // do nothing
-    //         } else {
-    //             // props.setPerson({...props.housemates, hOne: {
-    //             //     ...props.housemates.hOne, period: e.target.value
-    //             // }})
-    //             let inputPerson = props.person
-    //             console.log(inputPerson)
-    //             props.setPerson(person.map(person => 
-    //                     person.key === props.key
-    //                     ? {...person, stay: e.target.value}
-    //                     : person
-    //                 ))
-    //             console.log(props.person)
-    //         }
-    //     }
-    // }
-
     return (
         <div className="housemate">
             <div className="left-col"></div>

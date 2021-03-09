@@ -7,49 +7,34 @@ import BillCost from "./components/BillCost"
 import BillPeriod from "./components/BillPeriod"
 import HousemateQuantity from "./components/HousemateQuantity"
 import Housemate from "./components/Housemate"
-import HousematesDB from "./components/HousematesDB"
+import Results from "./components/Results"
 
 function App() {
     const [ width, setWidth ] = useState(window.innerWidth)
     const [ height, setHeight ] = useState(window.innerHeight)
     const [ billCost, setBillCost ] = useState(250)
     const [ billPeriod, setBillPeriod ] = useState(30)
-    const [ housemateCount, setHousemateCount ] = useState(0)
+    const [ housemateCount, setHousemateCount ] = useState(2)
     const [ person, setPerson ] = useState([])
-    const [ housemateEl, setHousemateEl ] = useState([])
+    const [ results, setResults ] = useState()
 
+    // Repopulates HM array
     const handleHousemates = () => {
-        console.log(housemateCount)
         let newHousemates = []
         for(let i = 0; i < housemateCount; i++) {
             let newHousemate = {
-                key: i, name: `HOUSEMATE ${i}`, stay: 0, owes: 0
+                key: i, name: `HOUSEMATE ${i}`, stay: 30, owes: 0
             }
             newHousemates.push(newHousemate)
         }
-        console.log("new: ", newHousemates)
         setPerson(newHousemates)
     }
 
     // When housemate quant is changed create new array of objects
     useEffect(() => {
         handleHousemates()
+        console.log("Housemate count: ", housemateCount)
     }, [housemateCount])
-
-    useEffect(() => {
-        console.log("persons: ", person)
-        // setHousemateEl(person.map(p => <Housemate 
-        //     height={height} width={width}
-        //     key={p.key}
-        //     person={p}
-        //     setPerson={setPerson}
-        //     handleChange={handleChange}
-        // />))
-    }, [person])
-
-    useEffect(() => {
-        console.log("EL: ", housemateEl)
-    }, [housemateEl])
 
     // Updates housemate data
     const handleChange = (e, key) => {
@@ -69,12 +54,67 @@ function App() {
         }
     }
 
+    // The actual algorithm
+    const BillBuster = (billCost, billLength, people) => {
+        let housemates = people.map(person => ({...person}))
+
+        for(const p of housemates) {
+            console.log("original")
+            console.log(p)
+        }
+
+        console.log("Bill cost: " + billCost)
+        console.log("Bill length: " + billLength)
+        const perDiem = billCost/billLength
+        console.log("Per Diem: " + perDiem)
+
+        // For days in range of bill length
+        for(let i = 0; i < billLength; i++) {
+            
+            // Count people in house on day
+            let peopleInHouse = 0
+            for(const person of housemates) {
+                if(person.stay > 0) {
+                    peopleInHouse += 1
+                }
+            }
+
+            // Split perdiem between people present in house
+            for(const person of housemates) {
+                if(person.stay > 0) {
+                    person.owes += (perDiem / peopleInHouse)
+                    person.stay -= 1
+                }
+            }
+        }
+
+        for(const person of housemates) {
+            console.log("final")
+            console.log(person)
+            console.log(housemates)
+        }
+
+        setResults({...housemates})
+    }
+
+    useEffect(() => {
+        console.log("results")
+        console.log(results)
+    }, [results])
+
+    // Handles results calculations
+    useEffect(() => {
+        // console.log("result in: ", person)
+        BillBuster(billCost, billPeriod, person)
+    }, [person])
+
     const peopleEl = person.map(p => <Housemate 
         height={height} width={width}
         key={p.key}
         person={p}
         setPerson={setPerson}
         handleChange={handleChange}
+        BillBuster={BillBuster}
     />)
 
     return (
@@ -124,6 +164,10 @@ function App() {
             />
 
             {peopleEl == 0 ? null : peopleEl}
+
+            <Results
+                height={height} width={width} 
+            />
         </div>
     )
 }
