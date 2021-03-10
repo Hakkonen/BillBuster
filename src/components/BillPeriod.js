@@ -15,12 +15,14 @@ function BillPeriod(props) {
 
     return (
         <div className="bill-period-page">
-            <div className="left-col"></div>
+            <div className="left-col">
+                <p className="hover square" style={{marginTop: "18vh"}}>3</p>
+            </div>
 
             <div className="middle-col">
                 <div
                     className="middle-col-header"
-                    style={{height: "30%"}}
+                    style={{height: "60%"}}
                 >
                     <p>BILL PERIOD</p>
                 </div>
@@ -28,7 +30,7 @@ function BillPeriod(props) {
                 
                 <div
                     className="bill-period-page-input"
-                    style={{height: "30%"}}
+                    style={{height: "10%"}}
                 >
                     <input 
                         type="text" 
@@ -44,7 +46,7 @@ function BillPeriod(props) {
             <div className="right-col">
                 <svg  
                     className="arrow"
-                    style={{height: "15%"}}
+                    style={{height: "30%"}}
                 >
                     <line x1="20" y1="0" x2="20" y2="900" style={{stroke: "rgb(255,255,255)", strokeWidth: "1"}} />
                 </svg>
@@ -60,7 +62,7 @@ function BillPeriod(props) {
                 {/* Input */}
                 <svg  
                     className="arrow"
-                    style={{height: "34.5%"}}
+                    style={{height: "19.5%"}}
                 >
                     <line x1="20" y1="0" x2="20" y2="900" style={{stroke: "rgb(255,255,255)", strokeWidth: "1"}} />
                 </svg>

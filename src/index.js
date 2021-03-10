@@ -159,7 +159,7 @@ function App() {
                     </p>
                 </div>
             </div>
-
+            
             <AboutPage height={height} width={width} />
 
             <BillCost 
@@ -188,7 +188,10 @@ function App() {
                 quantity={housemateCount}
                 results={results}
             />
+
             {results}
+
+            <div className="spacer"></div>
         </div>
     )
 }

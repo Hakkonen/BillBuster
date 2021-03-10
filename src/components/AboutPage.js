@@ -1,24 +1,22 @@
 import React from "react"
-import SiteLine from "./SiteLine"
-import LateralLine from "./LateralLine"
 
 function AboutPage(props) {
     
     return (
         <div className="about-page">
             <div className="left-col">
-
+                <p className="hover square" style={{marginTop: "18vh"}}>1</p>
             </div>
             <div className="middle-col">
                 <p 
                     className="middle-col-header"
-                    style={{height: "30%"}}
+                    style={{height: "50%"}}
                 >
                     ABOUT
                 </p>
                 <p 
                     className="middle-col-text"
-                    style={{height: "30%"}}
+                    style={{height: "10%"}}
                 >
                     Bill Buster is a web app designed to help divvy the cost of living together. Simply input the cost of the bill, the bill period, the number of housemates, their stay period, and their respective share of the cost.
                 </p>
@@ -27,7 +25,7 @@ function AboutPage(props) {
 
                 <svg  
                     className="arrow"
-                    style={{height: "15%"}}
+                    style={{height: "25%"}}
                 >
                     <line x1="20" y1="0" x2="20" y2="900" style={{stroke: "rgb(255,255,255)", strokeWidth: "1"}} />
                 </svg>
