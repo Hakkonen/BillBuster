@@ -19,12 +19,18 @@ function App() {
     const [ person, setPerson ] = useState([])
     const [ results, setResults ] = useState()
 
+    // Converts housemate index to name
+    function intToName(i) {
+        let names = ["ONE", "TWO", "THREE", "FOUR", "FIVE", "SIX", "SEVEN", "EIGHT", "NINE"]
+        return names[i]
+    }
+
     // Repopulates HM array
     const handleHousemates = () => {
         let newHousemates = []
         for(let i = 0; i < housemateCount; i++) {
             let newHousemate = {
-                key: i, name: `HOUSEMATE ${i}`, stay: 30, owes: 0
+                key: i, name: `HOUSEMATE ${intToName(i)}`, stay: 30, owes: 0
             }
             newHousemates.push(newHousemate)
         }
