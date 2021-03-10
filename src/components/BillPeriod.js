@@ -1,30 +1,47 @@
-import React from "react"
-import SiteLine from "./SiteLine"
-import LateralLine from "./LateralLine"
+import React, { useState } from "react"
 
-function AboutPage(props) {
-    
+function BillPeriod(props) {
+    function inputDays(e) {
+        let output = e.target.value
+        const re = /^[0-9\b]+$/;
+        if (output === '' || re.test(output)) {
+            if(output.length > 1 && output.charAt(0) === "0") {
+                // do nothing
+            } else {
+                props.setBillPeriod(output)
+            }
+        }
+    }
+
     return (
-        <div className="about-page">
-            <div className="left-col">
+        <div className="bill-period-page">
+            <div className="left-col"></div>
 
-            </div>
             <div className="middle-col">
-                <p 
+                <div
                     className="middle-col-header"
                     style={{height: "30%"}}
                 >
-                    ABOUT
-                </p>
-                <p 
-                    className="middle-col-text"
+                    <p>BILL PERIOD</p>
+                </div>
+
+                
+                <div
+                    className="bill-period-page-input"
                     style={{height: "30%"}}
                 >
-                    Bill Buster is a web app designed to help divvy the cost of living together. Simply input the cost of the bill, the bill period, the number of housemates, their stay period, and their respective share of the cost.
-                </p>
+                    <input 
+                        type="text" 
+                        value={props.billPeriod} 
+                        onChange={e => inputDays(e)} 
+                        maxLength="3"
+                        placeholder="30"
+                    />
+                    <p className="days">DAYS</p>
+                </div>
             </div>
-            <div className="right-col">
 
+            <div className="right-col">
                 <svg  
                     className="arrow"
                     style={{height: "15%"}}
@@ -39,11 +56,11 @@ function AboutPage(props) {
                     <line x1="20" y1="0" x2="20" y2="300" style={{stroke: "rgb(255,255,255)", strokeWidth: "1"}} />
                     <line x1={-props.width/3} y1="0" x2="20" y2="0" style={{stroke: "rgb(255,255,255)", strokeWidth: "1"}} />
                 </svg>
-
-                {/* Text */}
+                
+                {/* Input */}
                 <svg  
                     className="arrow"
-                    style={{height: "29%"}}
+                    style={{height: "34.5%"}}
                 >
                     <line x1="20" y1="0" x2="20" y2="900" style={{stroke: "rgb(255,255,255)", strokeWidth: "1"}} />
                 </svg>
@@ -60,8 +77,10 @@ function AboutPage(props) {
                     <line x1="20" y1="0" x2="20" y2="900" style={{stroke: "rgb(255,255,255)", strokeWidth: "1"}} />
                 </svg>
             </div>
+            
+            
         </div>
     )
 }
 
-export default AboutPage
+export default BillPeriod

@@ -1,30 +1,43 @@
-import React from "react"
-import SiteLine from "./SiteLine"
-import LateralLine from "./LateralLine"
+import React, { useState } from "react"
 
-function AboutPage(props) {
-    
+function HousemateQuantity(props) {
+    function setHousemates(e) {
+        let input = e.target.value
+        const re = /^[0-9\b]+$/;
+        if (input === '' || re.test(input)) {
+            if(input.length > 1 && input.charAt(0) === "0") {
+                // do nothing
+            } else {
+                props.setHousemateCount(input)
+            }
+        }
+    }
+
     return (
-        <div className="about-page">
-            <div className="left-col">
+        <div className="housemate-quantity">
+            <div className="left-col"></div>
 
-            </div>
             <div className="middle-col">
-                <p 
+                <div
                     className="middle-col-header"
                     style={{height: "30%"}}
                 >
-                    ABOUT
-                </p>
-                <p 
-                    className="middle-col-text"
-                    style={{height: "30%"}}
-                >
-                    Bill Buster is a web app designed to help divvy the cost of living together. Simply input the cost of the bill, the bill period, the number of housemates, their stay period, and their respective share of the cost.
-                </p>
-            </div>
-            <div className="right-col">
+                    <p>NO. OF HOUSEMATES</p>
+                </div>
 
+                <div className="housemates-input">
+                    <input
+                        type="text"
+                        value={props.housemateCount}
+                        onChange={e => setHousemates(e)}
+                        maxLength="1"
+                        placeholder="2"
+                    >
+                    </input>
+                </div>
+            </div>
+
+            <div className="right-col">
                 <svg  
                     className="arrow"
                     style={{height: "15%"}}
@@ -39,11 +52,10 @@ function AboutPage(props) {
                     <line x1="20" y1="0" x2="20" y2="300" style={{stroke: "rgb(255,255,255)", strokeWidth: "1"}} />
                     <line x1={-props.width/3} y1="0" x2="20" y2="0" style={{stroke: "rgb(255,255,255)", strokeWidth: "1"}} />
                 </svg>
-
-                {/* Text */}
+                
                 <svg  
                     className="arrow"
-                    style={{height: "29%"}}
+                    style={{height: "34.5%"}}
                 >
                     <line x1="20" y1="0" x2="20" y2="900" style={{stroke: "rgb(255,255,255)", strokeWidth: "1"}} />
                 </svg>
@@ -64,4 +76,4 @@ function AboutPage(props) {
     )
 }
 
-export default AboutPage
+export default HousemateQuantity
