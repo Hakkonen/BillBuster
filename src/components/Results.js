@@ -1,6 +1,8 @@
 import React, { useState } from "react"
 
 function Results(props) {
+    console.log(props)
+
     return (
         <div className="results-page">
             <div className="left-col"></div>
@@ -13,9 +15,9 @@ function Results(props) {
                     <p>RESULTS</p>
                 </div>
 
-                <div className="results-list">
-                    
-                </div>
+                {/* <div className="results-list">
+                    {props.results}
+                </div> */}
             </div>
 
             <div className="right-col">
@@ -32,6 +34,13 @@ function Results(props) {
                 >
                     <line x1="20" y1="0" x2="20" y2="300" style={{stroke: "rgb(255,255,255)", strokeWidth: "1"}} />
                     <line x1={-props.width/3} y1="0" x2="20" y2="0" style={{stroke: "rgb(255,255,255)", strokeWidth: "1"}} />
+                </svg>
+
+                <svg  
+                    className="arrow"
+                    style={{height: "7.5%"}}
+                >
+                    <line x1="20" y1="0" x2="20" y2="900" style={{stroke: "rgb(255,255,255)", strokeWidth: "1"}} />
                 </svg>
 
                 <svg  className="arrow">

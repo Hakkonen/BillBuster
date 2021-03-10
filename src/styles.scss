@@ -359,7 +359,47 @@ body {
 }
 
 .results-page {
-    @include flex-page();
+    @include flex-page(15vh);
 
-    
+    .middle-col-header > p{
+        font-size: 3rem;
+        padding-right: .5rem;
+        background-color: #48484A;
+    }
+
+
+}
+
+.results-row {
+    @include flex-page(10vh);
+
+    .results-list {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-content: center;
+        align-self: center;
+        align-items: center;
+
+        z-index: 500;
+        background-color: #48484A;
+        margin: 0 0 0 5vw;
+        padding-right: 5vw;
+        
+        position: absolute;
+    }
+
+    .results-list > p{
+        position: relative;
+
+        
+
+        font-size: 1.5rem;
+        font-weight: weights(thin);
+        text-align: right;
+    }
+
+    .results-list > p > .name {
+        font-weight: weights(light);
+    }
 }

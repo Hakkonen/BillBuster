@@ -8,6 +8,7 @@ import BillPeriod from "./components/BillPeriod"
 import HousemateQuantity from "./components/HousemateQuantity"
 import Housemate from "./components/Housemate"
 import Results from "./components/Results"
+import ResultRow from "./components/ResultRow"
 
 function App() {
     const [ width, setWidth ] = useState(window.innerWidth)
@@ -58,15 +59,15 @@ function App() {
     const BillBuster = (billCost, billLength, people) => {
         let housemates = people.map(person => ({...person}))
 
-        for(const p of housemates) {
-            console.log("original")
-            console.log(p)
-        }
+        // for(const p of housemates) {
+        //     console.log("original")
+        //     console.log(p)
+        // }
 
-        console.log("Bill cost: " + billCost)
-        console.log("Bill length: " + billLength)
+        // console.log("Bill cost: " + billCost)
+        // console.log("Bill length: " + billLength)
         const perDiem = billCost/billLength
-        console.log("Per Diem: " + perDiem)
+        // console.log("Per Diem: " + perDiem)
 
         // For days in range of bill length
         for(let i = 0; i < billLength; i++) {
@@ -88,13 +89,24 @@ function App() {
             }
         }
 
-        for(const person of housemates) {
-            console.log("final")
-            console.log(person)
-            console.log(housemates)
+        // for(const person of housemates) {
+        //     console.log("final")
+        //     console.log(person)
+        //     console.log(housemates)
+        // }
+        
+        let resultList = []
+        for(const p of housemates) {
+            resultList.push(<ResultRow 
+                key={p.key}
+                name={p.name}
+                owes={p.owes}
+                width={width}
+                height={height}
+            />)
         }
 
-        setResults({...housemates})
+        setResults(resultList)
     }
 
     useEffect(() => {
@@ -167,7 +179,10 @@ function App() {
 
             <Results
                 height={height} width={width} 
+                quantity={housemateCount}
+                results={results}
             />
+            {results}
         </div>
     )
 }
