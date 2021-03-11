@@ -24,7 +24,7 @@ function HousemateQuantity(props) {
                     className="middle-col-header"
                     style={{height: "60%"}}
                 >
-                    <p>NO. OF HOUSEMATES</p>
+                    <p>NUMBER OF HOUSEMATES</p>
                 </div>
 
                 <div className="housemates-input">
@@ -36,6 +36,7 @@ function HousemateQuantity(props) {
                         placeholder="2"
                     >
                     </input>
+                    {/* <p className="people">PEOPLE</p> */}
                 </div>
             </div>
 

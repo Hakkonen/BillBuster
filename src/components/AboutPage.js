@@ -10,15 +10,15 @@ function AboutPage(props) {
             <div className="middle-col">
                 <p 
                     className="middle-col-header"
-                    style={{height: "50%"}}
+                    style={{height: "40.5%"}}
                 >
                     ABOUT
                 </p>
                 <p 
                     className="middle-col-text"
-                    style={{height: "10%"}}
+                    style={{height: "6%"}}
                 >
-                    Bill Buster is a web app designed to help divvy the cost of living together. Simply input the cost of the bill, the bill period, the number of housemates, their stay period, and their respective share of the cost.
+                    <span className="limit-width">Bill Buster is a web app designed to help divvy the cost of living together. Simply input the cost of the bill, the bill period, the number of housemates, their stay period, and their respective share of the cost.</span>
                 </p>
             </div>
             <div className="right-col">

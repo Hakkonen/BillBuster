@@ -54,13 +54,13 @@ function BillCost(props) {
             <div className="middle-col">
                 <p 
                         className="middle-col-header"
-                        style={{height: "60%"}}
+                        style={{height: "50%"}}
                     >
                         BILL COST
                 </p>
                 <div 
                     className="bill-cost-input"
-                    style={{height: "30%"}}
+                    style={{height: "10%"}}
                 >
                     <span className="dollar">$</span>
                     <input 

@@ -86,10 +86,11 @@ body {
             align-items: center;
 
             width: auto;
-            max-width: 5ch;
+            // max-width: 5ch;
             height: auto;
-            margin: 0 0 0 17vw;
-            padding-right: 5vw;
+            // margin: 0 0 0 17vw;
+            // padding-right: 5vw;
+            padding: 0 1rem 0 1rem;
             z-index: 500;
 
             text-align: right;   
@@ -106,18 +107,22 @@ body {
             justify-content: center;
             align-items: center;
 
-            max-width: 30ch;
-            margin: 0 0 0 17vw;
-            padding-right: 5vw;
+            width: 100%;
+            // margin: 0 0 0 17vw;
+            // padding-right: 5vw;
             z-index: 500;
     
             text-align: justify;   
             position: relative;
     
-            background-color: $background-colour;
-    
             font-weight: weights(thin);
             font-size: 1rem;
+
+            .limit-width {
+                max-width: 30ch;
+                padding: 0 1rem 0 1rem;
+                background-color: $background-colour;
+            }
         }
     }
 
@@ -169,7 +174,7 @@ body {
     text-align: center;
 
     border: 1px solid white;
-    border-radius: 5px;
+    // border-radius: 5px;
 }
 
 .splash-page {
@@ -230,12 +235,6 @@ body {
 
 .about-page {
     @include flex-page();
-
-    // .hover {
-    //     @include sticky(22vh, 1100);
-    // }
-    
-    // margin-top: 27vh;
 }
 
 .bill-cost-page {
@@ -243,18 +242,16 @@ body {
 
     .bill-cost-input {
         display: flex;
-        flex-direction: row;
-        flex-wrap: nowrap;
-        align-content: center;
-        align-self: center;
-        align-items: center;
+        justify-content: center;
+        align-items: flex-start;
 
+        width: 100%;
+        margin: -13.5vh -7vw 0 0;
+        padding: 0 1rem 0 1rem;
         z-index: 500;
-        background-color: #48484A;
-        margin: 0 0 0 17vw;
-        padding-right: 3vw;
-        
-        position: absolute;
+
+        text-align: justify;   
+        position: relative;
 
         .dollar {
             font-size: 3rem;
@@ -264,7 +261,7 @@ body {
         }
 
         input {
-            @include clearInput(7ch);
+            @include clearInput(100%);
             text-align: left!important;
             font-weight: weights(thin)
         }
@@ -274,22 +271,28 @@ body {
 .bill-period-page {
     @include flex-page();
 
+    .middle-col-header {
+        background-color: #48484A;
+    }
+
     .bill-period-page-input {
         display: flex;
-        flex-direction: row;
-        flex-wrap: nowrap;
-        align-content: center;
-        align-self: center;
-        align-items: center;
+        justify-content: center;
+        align-items: flex-start;
 
+        width: 100%;
+        margin: -19.5vh 0 0 0;
+        padding: 0 1rem 0 1rem;
         z-index: 500;
-        background-color: #48484A;
-        margin: 0 0 0 12vw;
-        padding-right: 3vw;
-        
-        position: absolute;
+
+        text-align: justify;   
+        position: relative;
 
         .days {
+            align-self: center;
+
+            margin-right: -1.5vw;
+
             font-size: 3rem;
             font-weight: weights(thin);
             text-align: right;
@@ -297,6 +300,7 @@ body {
         }
 
         input {
+            align-self: center;
             @include clearInput(3ch);
         }
     }
@@ -306,29 +310,29 @@ body {
     @include flex-page();
 
     .middle-col-header > p{
-        font-size: 2rem;
-        padding-right: .5rem;
+        font-size: 2.2rem;
+        // margin-right: 1rem;
         background-color: #48484A;
+        text-align: right;
     }
 
     .housemates-input {
         display: flex;
-        flex-direction: row;
-        flex-wrap: nowrap;
-        align-content: center;
-        align-self: center;
-        align-items: center;
+        justify-content: center;
+        align-items: flex-start;
 
+        width: 100%;
+        margin: -13.5vh 0 0 0;
+        padding: 0 1rem 0 0;
         z-index: 500;
-        background-color: #48484A;
-        margin: 0 0 0 12vw;
-        padding-right: 3vw;
-        
-        position: absolute;
+
+        text-align: justify;   
+        position: relative;
 
         input {
+            align-self: center;
             @include clearInput(3ch);
-            font-weight: weights(thin)
+            font-weight: weights(light)
         }
     }
 }
@@ -336,29 +340,27 @@ body {
 .housemate {
     @include flex-page();
 
-    .middle-col-header > p{
-        font-size: 2rem;
-        padding-right: .5rem;
-        margin-right: 1rem;
+    .middle-col-header {
         background-color: #48484A;
+        margin-right: 1vw;
+        
     }
 
     .housemate-input {
         display: flex;
-        flex-direction: row;
-        flex-wrap: nowrap;
-        align-content: center;
-        align-self: center;
-        align-items: center;
+        justify-content: center;
+        align-items: flex-start;
 
+        width: 100%;
+        margin: -19vh 0 0 0;
+        padding: 0 0 0 1rem;
         z-index: 500;
-        background-color: #48484A;
-        margin: 0 0 0 7vw;
-        padding-right: 3vw;
-        
-        position: absolute;
+
+        text-align: justify;   
+        position: relative;
 
         .days {
+            // margin-right: -1.5vw;
             font-size: 3rem;
             font-weight: weights(thin);
             text-align: right;
@@ -367,7 +369,7 @@ body {
 
         input {
             @include clearInput(3ch);
-            
+            align-self: center;
         }
     }
 }
@@ -379,7 +381,7 @@ body {
 
     .middle-col-header > p{
         font-size: 3rem;
-        padding-right: .5rem;
+        padding-left: .5rem;
         background-color: #48484A;
     }
 
@@ -391,24 +393,22 @@ body {
 
     .results-list {
         display: flex;
-        flex-direction: column;
-        flex-wrap: wrap;
-        align-content: center;
-        align-self: center;
-        align-items: center;
+        justify-content: center;
+        align-items: flex-start;
 
-        z-index: 500;
-        background-color: #48484A;
-        margin: 0 0 0 15vw;
-        padding-right: 5vw;
-        
-        position: absolute;
+
+
+        text-align: justify;   
+        position: relative;
     }
 
     .results-list > p{
-        position: relative;
+        background-color: $background-colour;
 
-        
+        width: 100%;
+        margin: 0 0 0 0;
+        padding: 0 1rem 0 1rem;
+        z-index: 500;
 
         font-size: 1.5rem;
         font-weight: weights(thin);

@@ -7,7 +7,7 @@ function ResultRow(props) {
             <div className="middle-col">
                 <div  className="results-list">
                     <p>
-                        <span>{props.name}</span>
+                        <span className="name">{props.name}</span>
                         <br></br>
                         ${props.owes.toFixed(2)}
                     </p>
@@ -16,7 +16,7 @@ function ResultRow(props) {
             <div className="right-col">
                 <svg  
                     className="arrow"   
-                    style={{height: "49%"}}
+                    style={{height: "32%"}}
                 >
                     <line x1="20" y1="0" x2="20" y2="900" style={{stroke: "rgb(255,255,255)", strokeWidth: "1"}} />
                 </svg>
