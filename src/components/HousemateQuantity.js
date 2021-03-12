@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React from "react"
 
 function HousemateQuantity(props) {
     function setHousemates(e) {
@@ -24,7 +24,7 @@ function HousemateQuantity(props) {
                     className="middle-col-header"
                     style={{height: "60%"}}
                 >
-                    <p>NUMBER OF HOUSEMATES</p>
+                    <p>NUMBER OF<br></br>HOUSEMATES</p>
                 </div>
 
                 <div className="housemates-input">

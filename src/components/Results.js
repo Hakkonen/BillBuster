@@ -1,8 +1,6 @@
-import React, { useState } from "react"
+import React from "react"
 
 function Results(props) {
-    console.log(props)
-
     return (
         <div className="results-page">
             <div className="left-col">

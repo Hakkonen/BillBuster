@@ -24,7 +24,7 @@ function BillCost(props) {
                     let decimalIndex = input.indexOf(".")
                     // if (string - decimalIndex) <= 2 then continue
                     if(!(input.length - decimalIndex <= 3)) {
-                        console.log("No good")
+                        // console.log("No good")
                         input = input.slice(0, (decimalIndex + 3))
                     }
                 }
@@ -64,8 +64,7 @@ function BillCost(props) {
                 >
                     <span className="dollar">$</span>
                     <input 
-                        type="number"
-                        step=".01"
+                        type="text"
                         value={props.billCost} 
                         placeholder={1.23}
                         style={{width: billCostLength + "ch"}}
