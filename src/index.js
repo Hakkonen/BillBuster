@@ -99,11 +99,6 @@ function App() {
         setResults(resultList)
     }
 
-    useEffect(() => {
-        console.log("results")
-        console.log(results)
-    }, [results])
-
     // Handles results calculations
     useEffect(() => {
         BillBuster(billCost, billPeriod, person)
