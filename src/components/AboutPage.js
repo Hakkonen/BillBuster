@@ -18,7 +18,7 @@ function AboutPage(props) {
                     className="middle-col-text"
                     style={{height: "6%"}}
                 >
-                    <span className="limit-width">Bill Buster is a web app designed to help divvy the cost of living together. Simply input the cost of the bill, the bill period, the number of housemates, their stay period, and their respective share of the cost.</span>
+                    <span className="limit-width">Bill Buster is a web app designed to help divvy the cost of living together. Simply input the cost of the bill, the bill period, the number of housemates, their stay period, and their respective share of the cost will be calculated.</span>
                 </p>
             </div>
             <div className="right-col">
