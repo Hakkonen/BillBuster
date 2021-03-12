@@ -40,7 +40,6 @@ function App() {
     // When housemate quant is changed create new array of objects
     useEffect(() => {
         handleHousemates()
-        console.log("Housemate count: ", housemateCount)
     }, [housemateCount])
 
     // Updates housemate data
@@ -65,17 +64,8 @@ function App() {
     const BillBuster = (billCost, billLength, people) => {
         let housemates = people.map(person => ({...person}))
 
-        // for(const p of housemates) {
-        //     console.log("original")
-        //     console.log(p)
-        // }
-
-        // console.log("Bill cost: " + billCost)
-        // console.log("Bill length: " + billLength)
         const perDiem = billCost/billLength
-        // console.log("Per Diem: " + perDiem)
 
-        // For days in range of bill length
         for(let i = 0; i < billLength; i++) {
             
             // Count people in house on day
@@ -94,12 +84,6 @@ function App() {
                 }
             }
         }
-
-        // for(const person of housemates) {
-        //     console.log("final")
-        //     console.log(person)
-        //     console.log(housemates)
-        // }
         
         let resultList = []
         for(const p of housemates) {
@@ -122,7 +106,6 @@ function App() {
 
     // Handles results calculations
     useEffect(() => {
-        // console.log("result in: ", person)
         BillBuster(billCost, billPeriod, person)
     }, [person])
 
@@ -159,7 +142,7 @@ function App() {
                     </p>
                 </div>
             </div>
-
+            
             <AboutPage height={height} width={width} />
 
             <BillCost 
@@ -188,7 +171,10 @@ function App() {
                 quantity={housemateCount}
                 results={results}
             />
+
             {results}
+
+            <div className="spacer"></div>
         </div>
     )
 }

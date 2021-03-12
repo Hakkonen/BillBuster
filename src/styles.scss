@@ -64,7 +64,7 @@ body {
     align-content: center;
 
     .left-col {
-        width: 7vw;
+        width: 15vw;
         height: 100%;
     }
 
@@ -77,7 +77,7 @@ body {
         align-content: flex-start;
         flex-grow: 1;
 
-        width: 71vw;
+        width: 70vw;
         height: 100%;
 
         &-header {
@@ -86,10 +86,11 @@ body {
             align-items: center;
 
             width: auto;
-            max-width: 5ch;
+            // max-width: 5ch;
             height: auto;
-            margin: 0 0 0 17vw;
-            padding-right: 5vw;
+            // margin: 0 0 0 17vw;
+            // padding-right: 5vw;
+            padding: 0 1rem 0 1rem;
             z-index: 500;
 
             text-align: right;   
@@ -106,39 +107,27 @@ body {
             justify-content: center;
             align-items: center;
 
-            max-width: 30ch;
-            margin: 0 0 0 17vw;
-            padding-right: 5vw;
+            width: 100%;
+            // margin: 0 0 0 17vw;
+            // padding-right: 5vw;
             z-index: 500;
     
             text-align: justify;   
             position: relative;
     
-            background-color: $background-colour;
-    
             font-weight: weights(thin);
             font-size: 1rem;
-        }
 
-        // &-input {
-        //     display: flex;
-        //     flex-direction: row;
-        //     flex-wrap: nowrap;
-        //     align-content: center;
-        //     align-self: center;
-        //     align-items: center;
-    
-        //     z-index: 500;
-        //     background-color: #48484A;
-        //     margin: 0 0 0 17vw;
-        //     padding-right: 3vw;
-            
-        //     position: absolute;
-        // }
+            .limit-width {
+                max-width: 30ch;
+                padding: 0 1rem 0 1rem;
+                background-color: $background-colour;
+            }
+        }
     }
 
     .right-col {
-        width: 22vw;
+        width: 15vw;
         height: 100%;
         
         display: flex;
@@ -163,6 +152,29 @@ body {
             margin: 0;
         }
     }
+}
+
+@mixin sticky($height: -62vh, $index: 1000) {
+    z-index: $index;
+    position: -webkit-sticky;
+    position: sticky;
+    top: $height;
+}
+
+.hover {
+    @include sticky(22vh, 1000);
+}
+
+.square {
+    width: 1.2rem;
+    height: 1.2rem;
+
+    margin: 0 0 0 5vw;
+
+    text-align: center;
+
+    border: 1px solid white;
+    // border-radius: 5px;
 }
 
 .splash-page {
@@ -223,8 +235,6 @@ body {
 
 .about-page {
     @include flex-page();
-    
-    margin-top: 27vh;
 }
 
 .bill-cost-page {
@@ -232,18 +242,16 @@ body {
 
     .bill-cost-input {
         display: flex;
-        flex-direction: row;
-        flex-wrap: nowrap;
-        align-content: center;
-        align-self: center;
-        align-items: center;
+        justify-content: center;
+        align-items: flex-start;
 
+        width: 100%;
+        margin: -13.5vh 0 0 0;
+        padding: 0 1rem 0 5ch;
         z-index: 500;
-        background-color: #48484A;
-        margin: 0 0 0 17vw;
-        padding-right: 3vw;
-        
-        position: absolute;
+
+        text-align: justify;   
+        position: relative;
 
         .dollar {
             font-size: 3rem;
@@ -253,8 +261,9 @@ body {
         }
 
         input {
-            @include clearInput(7ch);
+            @include clearInput();
             text-align: left!important;
+            font-weight: weights(thin)
         }
     }
 }
@@ -262,22 +271,28 @@ body {
 .bill-period-page {
     @include flex-page();
 
+    .middle-col-header {
+        background-color: #48484A;
+    }
+
     .bill-period-page-input {
         display: flex;
-        flex-direction: row;
-        flex-wrap: nowrap;
-        align-content: center;
-        align-self: center;
-        align-items: center;
+        justify-content: center;
+        align-items: flex-start;
 
+        width: 100%;
+        margin: -19.5vh 0 0 0;
+        padding: 0 1rem 0 1rem;
         z-index: 500;
-        background-color: #48484A;
-        margin: 0 0 0 17vw;
-        padding-right: 3vw;
-        
-        position: absolute;
+
+        text-align: justify;   
+        position: relative;
 
         .days {
+            align-self: center;
+
+            margin-right: -1.5vw;
+
             font-size: 3rem;
             font-weight: weights(thin);
             text-align: right;
@@ -285,6 +300,7 @@ body {
         }
 
         input {
+            align-self: center;
             @include clearInput(3ch);
         }
     }
@@ -294,28 +310,29 @@ body {
     @include flex-page();
 
     .middle-col-header > p{
-        font-size: 2rem;
-        padding-right: .5rem;
+        font-size: 2.2rem;
+        // margin-right: 1rem;
         background-color: #48484A;
+        text-align: right;
     }
 
     .housemates-input {
         display: flex;
-        flex-direction: row;
-        flex-wrap: nowrap;
-        align-content: center;
-        align-self: center;
-        align-items: center;
+        justify-content: center;
+        align-items: flex-start;
 
+        width: 100%;
+        margin: -13.5vh 0 0 0;
+        padding: 0 1rem 0 0;
         z-index: 500;
-        background-color: #48484A;
-        margin: 0 0 0 5vw;
-        padding-right: 3vw;
-        
-        position: absolute;
+
+        text-align: justify;   
+        position: relative;
 
         input {
+            align-self: center;
             @include clearInput(3ch);
+            font-weight: weights(light)
         }
     }
 }
@@ -323,28 +340,27 @@ body {
 .housemate {
     @include flex-page();
 
-    .middle-col-header > p{
-        font-size: 2rem;
-        padding-right: .5rem;
+    .middle-col-header {
         background-color: #48484A;
+        margin-right: 1vw;
+        
     }
 
     .housemate-input {
         display: flex;
-        flex-direction: row;
-        flex-wrap: nowrap;
-        align-content: center;
-        align-self: center;
-        align-items: center;
+        justify-content: center;
+        align-items: flex-start;
 
+        width: 100%;
+        margin: -19vh 0 0 0;
+        padding: 0 0 0 1rem;
         z-index: 500;
-        background-color: #48484A;
-        margin: 0 0 0 0;
-        padding-right: 3vw;
-        
-        position: absolute;
+
+        text-align: justify;   
+        position: relative;
 
         .days {
+            // margin-right: -1.5vw;
             font-size: 3rem;
             font-weight: weights(thin);
             text-align: right;
@@ -353,17 +369,19 @@ body {
 
         input {
             @include clearInput(3ch);
-            
+            align-self: center;
         }
     }
 }
 
 .results-page {
-    @include flex-page(15vh);
+    @include flex-page(25vh);
+
+    margin-top: 20vh;
 
     .middle-col-header > p{
         font-size: 3rem;
-        padding-right: .5rem;
+        padding-left: .5rem;
         background-color: #48484A;
     }
 
@@ -375,24 +393,22 @@ body {
 
     .results-list {
         display: flex;
-        flex-direction: column;
-        flex-wrap: wrap;
-        align-content: center;
-        align-self: center;
-        align-items: center;
+        justify-content: center;
+        align-items: flex-start;
 
-        z-index: 500;
-        background-color: #48484A;
-        margin: 0 0 0 5vw;
-        padding-right: 5vw;
-        
-        position: absolute;
+
+
+        text-align: justify;   
+        position: relative;
     }
 
     .results-list > p{
-        position: relative;
+        background-color: $background-colour;
 
-        
+        width: 100%;
+        margin: 0 0 0 0;
+        padding: 0 1rem 0 1rem;
+        z-index: 500;
 
         font-size: 1.5rem;
         font-weight: weights(thin);
@@ -402,4 +418,8 @@ body {
     .results-list > p > .name {
         font-weight: weights(light);
     }
+}
+
+.spacer {
+    height: 30vh;
 }

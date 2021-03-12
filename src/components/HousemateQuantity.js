@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React from "react"
 
 function HousemateQuantity(props) {
     function setHousemates(e) {
@@ -15,14 +15,16 @@ function HousemateQuantity(props) {
 
     return (
         <div className="housemate-quantity">
-            <div className="left-col"></div>
+            <div className="left-col">
+                <p className="hover square" style={{marginTop: "18vh"}}>4</p>
+            </div>
 
             <div className="middle-col">
                 <div
                     className="middle-col-header"
-                    style={{height: "30%"}}
+                    style={{height: "60%"}}
                 >
-                    <p>NO. OF HOUSEMATES</p>
+                    <p>NUMBER OF<br></br>HOUSEMATES</p>
                 </div>
 
                 <div className="housemates-input">
@@ -34,13 +36,14 @@ function HousemateQuantity(props) {
                         placeholder="2"
                     >
                     </input>
+                    {/* <p className="people">PEOPLE</p> */}
                 </div>
             </div>
 
             <div className="right-col">
                 <svg  
                     className="arrow"
-                    style={{height: "15%"}}
+                    style={{height: "30%"}}
                 >
                     <line x1="20" y1="0" x2="20" y2="900" style={{stroke: "rgb(255,255,255)", strokeWidth: "1"}} />
                 </svg>
@@ -55,7 +58,7 @@ function HousemateQuantity(props) {
                 
                 <svg  
                     className="arrow"
-                    style={{height: "34.5%"}}
+                    style={{height: "20%"}}
                 >
                     <line x1="20" y1="0" x2="20" y2="900" style={{stroke: "rgb(255,255,255)", strokeWidth: "1"}} />
                 </svg>

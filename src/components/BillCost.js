@@ -1,6 +1,4 @@
 import React, { useState } from "react"
-import SiteLine from "./SiteLine"
-import LateralLine from "./LateralLine"
 
 function BillCost(props) {
     const [ billCostLength , setBillCostLength ] = useState(4)
@@ -26,7 +24,7 @@ function BillCost(props) {
                     let decimalIndex = input.indexOf(".")
                     // if (string - decimalIndex) <= 2 then continue
                     if(!(input.length - decimalIndex <= 3)) {
-                        console.log("No good")
+                        // console.log("No good")
                         input = input.slice(0, (decimalIndex + 3))
                     }
                 }
@@ -49,23 +47,24 @@ function BillCost(props) {
 
     return (
         <div className="bill-cost-page">
-            <div className="left-col"> </div>
+            <div className="left-col">
+            <p className="hover square" style={{marginTop: "18vh"}}>2</p>
+            </div>
 
             <div className="middle-col">
                 <p 
                         className="middle-col-header"
-                        style={{height: "30%"}}
+                        style={{height: "50%"}}
                     >
                         BILL COST
                 </p>
                 <div 
                     className="bill-cost-input"
-                    style={{height: "30%"}}
+                    style={{height: "10%"}}
                 >
                     <span className="dollar">$</span>
                     <input 
-                        type="number"
-                        step=".01"
+                        type="text"
                         value={props.billCost} 
                         placeholder={1.23}
                         style={{width: billCostLength + "ch"}}
@@ -78,7 +77,7 @@ function BillCost(props) {
             <div className="right-col">
                 <svg  
                     className="arrow"
-                    style={{height: "15%"}}
+                    style={{height: "30%"}}
                 >
                     <line x1="20" y1="0" x2="20" y2="900" style={{stroke: "rgb(255,255,255)", strokeWidth: "1"}} />
                 </svg>
@@ -94,7 +93,7 @@ function BillCost(props) {
                 {/* Input */}
                 <svg  
                     className="arrow"
-                    style={{height: "34.5%"}}
+                    style={{height: "19.5%"}}
                 >
                     <line x1="20" y1="0" x2="20" y2="900" style={{stroke: "rgb(255,255,255)", strokeWidth: "1"}} />
                 </svg>

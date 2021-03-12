@@ -1,16 +1,16 @@
-import React, { useState } from "react"
+import React from "react"
 
 function Results(props) {
-    console.log(props)
-
     return (
         <div className="results-page">
-            <div className="left-col"></div>
+            <div className="left-col">
+                <p className="hover square">6</p>
+            </div>
 
             <div className="middle-col">
                 <div
                     className="middle-col-header"
-                    style={{height: "30%"}}
+                    style={{height: "80%"}}
                 >
                     <p>RESULTS</p>
                 </div>
@@ -23,7 +23,7 @@ function Results(props) {
             <div className="right-col">
                 <svg  
                     className="arrow"
-                    style={{height: "15%"}}
+                    style={{height: "40%"}}
                 >
                     <line x1="20" y1="0" x2="20" y2="900" style={{stroke: "rgb(255,255,255)", strokeWidth: "1"}} />
                 </svg>

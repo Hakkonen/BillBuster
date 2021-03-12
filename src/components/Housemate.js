@@ -3,12 +3,14 @@ import React, { useState } from "react"
 function Housemate(props) {
     return (
         <div className="housemate">
-            <div className="left-col"></div>
+            <div className="left-col">
+                <p className="hover square" style={{marginTop: "18vh"}}>5</p>
+            </div>
 
             <div className="middle-col">
                 <div
                     className="middle-col-header"
-                    style={{height: "30%"}}
+                    style={{height: "60%"}}
                 >
                     <p>{props.person.name} STAY</p>
                 </div>
@@ -29,7 +31,7 @@ function Housemate(props) {
             <div className="right-col">
                 <svg  
                     className="arrow"
-                    style={{height: "15%"}}
+                    style={{height: "30%"}}
                 >
                     <line x1="20" y1="0" x2="20" y2="900" style={{stroke: "rgb(255,255,255)", strokeWidth: "1"}} />
                 </svg>
@@ -44,7 +46,7 @@ function Housemate(props) {
 
                 <svg  
                     className="arrow"
-                    style={{height: "34.5%"}}
+                    style={{height: "20%"}}
                 >
                     <line x1="20" y1="0" x2="20" y2="900" style={{stroke: "rgb(255,255,255)", strokeWidth: "1"}} />
                 </svg>
