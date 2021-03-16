@@ -27,7 +27,10 @@ function HousemateQuantity(props) {
                     <p>NUMBER OF<br></br>HOUSEMATES</p>
                 </div>
 
-                <div className="housemates-input">
+                <div 
+                    className="housemates-input"
+                    style={{height: "7.5%"}}
+                >
                     <input
                         type="text"
                         value={props.housemateCount}

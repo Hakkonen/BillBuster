@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React from "react"
 
 function Housemate(props) {
     return (
@@ -15,7 +15,10 @@ function Housemate(props) {
                     <p>{props.person.name} STAY</p>
                 </div>
                 
-                <div className="housemate-input">
+                <div 
+                    className="housemate-input"
+                    style={{height: "7.5%"}}
+                >
                     <input
                         type="text"
                         name="period"

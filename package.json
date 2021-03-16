@@ -1,6 +1,6 @@
 {
   "name": "BillBuster",
-  "version": "0.8.0",
+  "version": "1.0.0",
   "description": "WebApp for dividing housemate bills",
   "main": "index.js",
   "scripts": {
@@ -38,6 +38,7 @@
     "express": "^4.17.1",
     "moment": "^2.29.1",
     "react": "^17.0.1",
+    "react-contenteditable": "^3.3.5",
     "react-currency-input-field": "^3.3.0",
     "react-dom": "^17.0.1"
   }

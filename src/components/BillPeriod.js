@@ -30,6 +30,7 @@ function BillPeriod(props) {
                 
                 <div
                     className="bill-period-page-input"
+                    style={{height: "7%"}}
                 >
                     <input 
                         type="text" 

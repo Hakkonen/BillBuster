@@ -1,4 +1,5 @@
 import React from "react"
+import LineComp from "./LineComp"
 
 function AboutPage(props) {
     
@@ -10,7 +11,7 @@ function AboutPage(props) {
             <div className="middle-col">
                 <p 
                     className="middle-col-header"
-                    style={{height: "40.5%"}}
+                    style={{height: "49.5%"}}
                 >
                     ABOUT
                 </p>
@@ -22,6 +23,8 @@ function AboutPage(props) {
                 </p>
             </div>
             <div className="right-col">
+
+                {/* <LineComp height={25} width={props.width} /> */}
 
                 <svg  
                     className="arrow"
