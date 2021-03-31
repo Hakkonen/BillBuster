@@ -30,7 +30,7 @@ function App() {
         let newHousemates = []
         for(let i = 0; i < housemateCount; i++) {
             let newHousemate = {
-                key: i, name: `HOUSEMATE ${intToName(i)}`, stay: 30, owes: 0
+                key: i, name: `HOUSEMATE ${intToName(i)}`, stay: 30, owes: 0, ratio: 0
             }
             newHousemates.push(newHousemate)
         }
@@ -41,6 +41,28 @@ function App() {
     useEffect(() => {
         handleHousemates()
     }, [housemateCount])
+
+    // // Listens for housemate stay period
+    // // If there are no housemates present for entire stay reduce bill length to longest stay period to compensate for bill split ratio
+    // useEffect(() => {
+    //     console.log("person: ", person)
+    //     console.log("bill length: ", billPeriod)
+    //     let longestStay = 0
+    //     for(const p of person) {
+    //         console.log(p.stay)
+    //         // Set longest stay
+    //         if(p.stay > longestStay){ longestStay = p.stay }
+    //     }
+    //     // If longest stay is less than bill period, reduce bill period to stay length
+    //     if(billPeriod > longestStay) {
+    //         setBillPeriod(longestStay)
+    //     }
+    // }, [person])
+
+    // // Console log updated bill period
+    // useEffect(() => {
+    //     console.log("New bill period: ", billPeriod)
+    // }, [billPeriod])
 
     // Updates housemate data
     const handleChange = (e, key) => {
@@ -62,29 +84,33 @@ function App() {
 
     // The actual algorithm
     const BillBuster = (billCost, billLength, people) => {
+        // Add up the total stay period
+        let totalStayDays = 0
+        for(const p of people) {
+            totalStayDays = parseInt(totalStayDays + parseInt(p.stay))
+        }
+        console.log("total stay days: ", totalStayDays)
+
+        // Figure out per diem
+        const perDiem = billCost/billLength
+        console.log("perDiem: ", perDiem)
+
+        // Calculate stay percentage for each housemate, which gives the total percentage to pay for the bill
+        for(const p of people) {
+            p.ratio = p.stay / totalStayDays * 100
+            console.log(p.name + ", ratio: " + p.ratio + "%")
+        }
+
+        // Map person object to housemates to avoid mutation
         let housemates = people.map(person => ({...person}))
 
-        const perDiem = billCost/billLength
-
-        for(let i = 0; i < billLength; i++) {
-            
-            // Count people in house on day
-            let peopleInHouse = 0
-            for(const person of housemates) {
-                if(person.stay > 0) {
-                    peopleInHouse += 1
-                }
-            }
-
-            // Split perdiem between people present in house
-            for(const person of housemates) {
-                if(person.stay > 0) {
-                    person.owes += (perDiem / peopleInHouse)
-                    person.stay -= 1
-                }
-            }
+        // Calculate each person's percent share of bill
+        for(const p of housemates) {
+            p.owes = parseFloat(billCost * p.ratio / 100)
+            console.log(p.owes)
         }
         
+        // Return result
         let resultList = []
         for(const p of housemates) {
             resultList.push(<ResultRow 
