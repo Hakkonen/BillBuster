@@ -42,28 +42,6 @@ function App() {
         handleHousemates()
     }, [housemateCount])
 
-    // // Listens for housemate stay period
-    // // If there are no housemates present for entire stay reduce bill length to longest stay period to compensate for bill split ratio
-    // useEffect(() => {
-    //     console.log("person: ", person)
-    //     console.log("bill length: ", billPeriod)
-    //     let longestStay = 0
-    //     for(const p of person) {
-    //         console.log(p.stay)
-    //         // Set longest stay
-    //         if(p.stay > longestStay){ longestStay = p.stay }
-    //     }
-    //     // If longest stay is less than bill period, reduce bill period to stay length
-    //     if(billPeriod > longestStay) {
-    //         setBillPeriod(longestStay)
-    //     }
-    // }, [person])
-
-    // // Console log updated bill period
-    // useEffect(() => {
-    //     console.log("New bill period: ", billPeriod)
-    // }, [billPeriod])
-
     // Updates housemate data
     const handleChange = (e, key) => {
         let input = e.target.value
@@ -89,16 +67,14 @@ function App() {
         for(const p of people) {
             totalStayDays = parseInt(totalStayDays + parseInt(p.stay))
         }
-        console.log("total stay days: ", totalStayDays)
 
         // Figure out per diem
         const perDiem = billCost/billLength
-        console.log("perDiem: ", perDiem)
 
         // Calculate stay percentage for each housemate, which gives the total percentage to pay for the bill
         for(const p of people) {
             p.ratio = p.stay / totalStayDays * 100
-            console.log(p.name + ", ratio: " + p.ratio + "%")
+            // console.log(p.name + ", ratio: " + p.ratio + "%")
         }
 
         // Map person object to housemates to avoid mutation
@@ -107,7 +83,6 @@ function App() {
         // Calculate each person's percent share of bill
         for(const p of housemates) {
             p.owes = parseFloat(billCost * p.ratio / 100)
-            console.log(p.owes)
         }
         
         // Return result
