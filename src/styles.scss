@@ -1,10 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;1,100;1,300;1,400&display=swap');
 
 $font: "Roboto", sans-serif;
-$splash-background: #ffffff;
-$background-colour: #48484A;
-$splash-text-colour: #FF462D;
-$primary-text-colour: #ffffff;
+$splash-background: #57909D;
+$background-colour: rgb(242,242,247);
+$splash-text-colour: rgb(242,242,247);
+$primary-text-colour: rgb(28,28,30);
 $font-weights:(
     "regular": 400,
     "light": 300,
@@ -169,7 +169,8 @@ body {
 
     text-align: center;
 
-    border: 1px solid white;
+    color: $splash-background;
+    border: 1px solid $splash-background;
     // border-radius: 5px;
 }
 
@@ -259,7 +260,7 @@ body {
             font-size: 3rem;
             font-weight: weights(light);
             text-align: right;
-            background-color: #48484A;
+            background-color: $background-colour;
         }
 
         input {
@@ -274,7 +275,7 @@ body {
     @include flex-page();
 
     .middle-col-header {
-        background-color: #48484A;
+        background-color: $background-colour;
     }
 
     .bill-period-page-input {
@@ -299,7 +300,7 @@ body {
             font-size: 3rem;
             font-weight: weights(thin);
             text-align: right;
-            background-color: #48484A;
+            background-color: $background-colour;
         }
 
         input {
@@ -314,7 +315,7 @@ body {
 
     .middle-col-header > p{
         font-size: 2.2rem;
-        background-color: #48484A;
+        background-color: $background-colour;
         text-align: right;
     }
 
@@ -343,7 +344,7 @@ body {
     @include flex-page();
 
     .middle-col-header {
-        background-color: #48484A;
+        background-color: $background-colour;
         margin-right: 1vw;
         
     }
@@ -369,7 +370,7 @@ body {
             font-size: 3rem;
             font-weight: weights(thin);
             text-align: right;
-            background-color: #48484A;
+            background-color: $background-colour;
         }
 
         input {
@@ -387,7 +388,7 @@ body {
     .middle-col-header > p{
         font-size: 3rem;
         padding-left: .5rem;
-        background-color: #48484A;
+        background-color: $background-colour;
     }
 
 

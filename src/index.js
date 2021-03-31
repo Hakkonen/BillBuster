@@ -112,6 +112,7 @@ function App() {
         setPerson={setPerson}
         handleChange={handleChange}
         BillBuster={BillBuster}
+        billPeriod={billPeriod}
     />)
 
     return (
@@ -128,9 +129,9 @@ function App() {
                 </div>
                 <div className="right-col">
                     <svg  className="arrow">
-                        <line x1="20" y1="150" x2="20" y2="800" style={{stroke: "rgb(255,0,0)", strokeWidth: "1"}} />
-                        <line x1="20" y1="150" x2="27" y2="160" style={{stroke: "rgb(255,0,0)", strokeWidth: "1"}} />
-                        <line x1="20" y1="150" x2="13" y2="160" style={{stroke: "rgb(255,0,0)", strokeWidth: "1"}} />
+                        <line x1="20" y1="150" x2="20" y2="800" style={{stroke: "rgb(255,255,255)", strokeWidth: "1"}} />
+                        <line x1="20" y1="150" x2="27" y2="160" style={{stroke: "rgb(255,255,255)", strokeWidth: "1"}} />
+                        <line x1="20" y1="150" x2="13" y2="160" style={{stroke: "rgb(255,255,255)", strokeWidth: "1"}} />
                     </svg>
                     
                     <p className="swipe">
